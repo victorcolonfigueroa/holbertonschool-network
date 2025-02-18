@@ -1,7 +1,3 @@
-#!/bin/bash
-
-# Display all active IPv4 addresses on the machine
-echo "Active IPv4 addresses on this machine:"
-
-# Use the ip command to get all active IPv4 addresses
-ip -4 -o addr show | awk '{print $4}' | cut -d'/' -f1
+#!/usr/bin/env bash
+# Show all ipv4 currently use
+ifconfig | grep "inet " | grep -v 127.0.0.1 | cut -d\  -f2

@@ -1,22 +1,3 @@
 #!/usr/bin/env bash
-
-# Update the package manager
-sudo apt-get update
-
-# Set the localhost to resolve to 127.0.0.2
-echo "127.0.0.2 localhost" | sudo tee -a /etc/hosts
-
-# Set facebook.com to resolve to 8.8.8.8
-echo "8.8.8.8 facebook.com" | sudo tee -a /etc/hosts
-
-# Set the current date and time to February 03, 2025, 8 PM AST
-# Note: The date command uses UTC, so adjust accordingly if necessary.
-sudo timedatectl set-time '2025-02-03 20:00:00'
-
-# Set the timezone to AST (Atlantic Standard Time)
-sudo timedatectl set-timezone 'America/Puerto_Rico'
-
-# Restart the systemd-timesyncd service to ensure time synchronization
-sudo systemctl restart systemd-timesyncd
-
-echo "Configuration complete."
+# script that change localhost ip and facebook ip
+sudo bash -c 'echo -e "127.0.0.2 localhost \n 8.8.8.8 facebook.com" > /etc/hosts'
